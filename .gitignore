@@ -1,0 +1,8 @@
+# VSCode
+.history/
+__pycache__/
+.vscode/
+
+venv/
+
+vesperr*
