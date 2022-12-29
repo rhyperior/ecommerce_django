@@ -1,0 +1,89 @@
+{% extends 'nav.html' %}
+{% block title%}
+Signup
+{% endblock title%}
+{% block style %}
+<style>
+.btn {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: 0.5s;
+    color: #3498db;
+    border: 2px solid #3498db;
+}
+.btn:hover {
+    background-color: #3498db;;
+    color: white;
+}
+</style>
+{% endblock style %}
+{% block body %}
+
+<section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-4">
+    <br>
+    <br>
+    <h1>Signup</h1>
+    <div class="container" data-aos="fade-up" data-aos-delay="200">
+    </div>
+
+    <!-- ALERT -->
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong></strong>{{message}} 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    </div> 
+    {% endfor %}
+
+    <!-- SIGNUP FORM -->
+    <form action="/app_auth/signup" method="POST">
+    {% csrf_token %}
+        <!-- <div class="form-group">
+            <label for="user-name">Username</label>
+            <input id="username" class="form-control" placeholder="User Name">
+        </div>
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input id="firstname" class="form-control" placeholder="first Name">
+        </div>
+        <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input id="lastname" class="form-control" placeholder="last Name">
+        </div> -->
+        <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pass1">
+        </div>
+        <div class="form-group">
+        <label for="exampleInputPassword1">Confirm Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="re-enter Password" name="pass2">
+        </div>
+        <br>
+        <button type="submit" class="btn">Submit</button>
+        <label>Already a User ? <a href="/app_auth/login">Login</a></label>
+    </form> 
+</div>
+</div>
+
+</div>
+</div>
+</section>
+{% endblock body %}
